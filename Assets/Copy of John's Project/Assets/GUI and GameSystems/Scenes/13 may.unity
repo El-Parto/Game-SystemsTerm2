@@ -396,19 +396,23 @@ MonoBehaviour:
     topic: See ya later!!
     response: Bye!!
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 0}
   dialogueOptions:
   - topic: Are you Joe?
     response: Joe Mamma!! rofl XD!!!
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 0}
   - topic: Are you Jeff?
     response: My name is not Jeff
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 0}
   - topic: Bruh
     response: Moment
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 0}
 --- !u!136 &738514731
 CapsuleCollider:
@@ -526,21 +530,25 @@ MonoBehaviour:
     topic: See ya later!!
     response: Bye!!
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 909294496}
   dialogueOptions:
   - topic: I suppose you're here to test me
     response: I suppose YOU'RE here  to annoy me
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 909294491}
   - topic: Pootis
     response: Spencer
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 909294491}
   - topic: What was his name again?
     response: 'JOHN CENA!!!!
 
       .....'
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 909294491}
 --- !u!136 &909294492
 CapsuleCollider:
@@ -631,21 +639,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3445c5cce545fc4e81e48847dca92af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faction: 
+  faction: Trolls
   greeting: Oh by the way
   goodbye:
     topic: No. See you later
     response: ...okay
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 0}
   dialogueOptions:
   - topic: what?
     response: Do you want fries with that?
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 909294496}
   - topic: Is it the chinchillas again?
     response: Yes please help
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 909294496}
 --- !u!1 &937849104
 GameObject:
@@ -679,11 +690,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b73368cdcdad348bc27826a30771f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 6
   walkSpeed: 5
   runSpeed: 24
   crouchSpeed: 2
-  jumpSpeed: 2
+  jumpSpeed: 12
   _charC: {fileID: 937849110}
 --- !u!114 &937849106
 MonoBehaviour:

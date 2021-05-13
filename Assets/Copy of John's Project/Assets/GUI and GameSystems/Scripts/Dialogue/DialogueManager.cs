@@ -45,7 +45,7 @@ public class DialogueManager : MonoBehaviour
         int i = 0;
         foreach (LineOfDialogue item in dialogue.dialogueOptions)
         {
-            float? currentApproval = FactionManager.instance.GetFactionsApproval(dialogue.faction);
+            float? currentApproval = FactionManager.instance./*Get*/FactionsApproval(dialogue.faction);
             if (currentApproval != null && currentApproval > item.minApproval)
             {
                 //if not working, this was not in the if statement
@@ -53,8 +53,9 @@ public class DialogueManager : MonoBehaviour
                 spawnedButton.GetComponentInChildren<TextMeshProUGUI>().text = item.topic;
                 int i2 = i;
                 spawnedButton.onClick.AddListener(delegate { ButtonClicked(i2); });
-                i++;
+               
             }
+            i++;
         }
         spawnedButton = Instantiate(buttonPrefab, buttonPanel).GetComponent<Button>();
         spawnedButton.GetComponentInChildren<TextMeshProUGUI>().text = dialogue.goodbye.topic;
@@ -78,7 +79,19 @@ public class DialogueManager : MonoBehaviour
 
     void ButtonClicked(int _dialogueNum)
     {
+        
+        FactionManager.instance.FactionsApproval(currentDialogue.faction);// this changes the approval rating theoretically
         DisplayResponse(currentDialogue.dialogueOptions[_dialogueNum].response);
+        /*
+        if (currentDialogue.dialogueOptions[index].nextDialogue != null)
+        {
+            LoadDialogue.dialogueOptions[index].nextDialogue);
+        }
+        else
+        {
+            DisplayResponse(currentDialogue.dialogueOptions[index].response);
+        }
+        */
     }
 
     private void DisplayResponse(string _response)
@@ -95,9 +108,5 @@ public class DialogueManager : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

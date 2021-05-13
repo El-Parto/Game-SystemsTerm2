@@ -7,9 +7,34 @@ public class Interact : MonoBehaviour
     public bool firstDialogue;
     // Update is called once per frame
     void Update()
-    {
+    {/*
         //if (!firstDialogue) return;
         if (Input.GetKeyDown(KeyCode.E))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 2))
+            {
+                if (hit.transform.tag == "NPC")
+                {
+                    Dialogue[] npcDialogue = hit.transform.GetComponents<Dialogue>();
+                    if(npcDialogue != null)
+                    {
+                        foreach(Dialogue dialogue in npcDialogue)
+                        {
+                            if (Dialogue.firstDialogue == true)
+                            {
+                                Cursor.lockState = CursorLockMode.Confined;
+                                Cursor.visible = true;
+
+                                DialogueManager.instance.loadDialogue(dialogue);
+                            }
+                        }
+                    }
+                    */
+
+
+                    //if (!firstDialogue) return;
+                    if (Input.GetKeyDown(KeyCode.E))
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, 2))
@@ -26,4 +51,5 @@ public class Interact : MonoBehaviour
         }
 
     }
+
 }

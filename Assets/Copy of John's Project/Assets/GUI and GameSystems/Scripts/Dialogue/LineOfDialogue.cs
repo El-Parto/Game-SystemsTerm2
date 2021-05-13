@@ -8,6 +8,9 @@ public class LineOfDialogue
     //public int minIntel;
     public float minApproval = -1;
 
+    public float changeApproval = 0f;
+
+
     public Dialogue nextDialogue;
 
     [System.NonSerialized]
