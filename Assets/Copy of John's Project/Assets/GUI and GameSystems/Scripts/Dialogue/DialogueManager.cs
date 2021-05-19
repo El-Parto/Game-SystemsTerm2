@@ -80,7 +80,7 @@ public class DialogueManager : MonoBehaviour
     void ButtonClicked(int _dialogueNum)
     {
         
-        FactionManager.instance.FactionsApproval(currentDialogue.faction);// this changes the approval rating theoretically
+        FactionManager.instance.FactionsApproval(currentDialogue.faction, currentDialogue.dialogueOptions[_dialogueNum].changeApproval );// this changes the approval rating theoretically
         DisplayResponse(currentDialogue.dialogueOptions[_dialogueNum].response);
         /*
         if (currentDialogue.dialogueOptions[index].nextDialogue != null)

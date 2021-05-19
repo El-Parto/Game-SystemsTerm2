@@ -123,72 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &236770405
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 236770408}
-  - component: {fileID: 236770407}
-  - component: {fileID: 236770406}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &236770406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236770405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &236770407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236770405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &236770408
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236770405}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &510181746
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,19 +330,23 @@ MonoBehaviour:
     topic: See ya later!!
     response: Bye!!
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 0}
   dialogueOptions:
   - topic: Are you Joe?
     response: Joe Mamma!! rofl XD!!!
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 0}
   - topic: Are you Jeff?
     response: My name is not Jeff
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 0}
   - topic: Bruh
     response: Moment
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 0}
 --- !u!136 &738514731
 CapsuleCollider:
@@ -485,7 +423,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &909294490
 GameObject:
@@ -526,21 +464,35 @@ MonoBehaviour:
     topic: See ya later!!
     response: Bye!!
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 909294496}
   dialogueOptions:
   - topic: I suppose you're here to test me
     response: I suppose YOU'RE here  to annoy me
-    minApproval: -1
+    minApproval: -2
+    changeApproval: 0.1
     nextDialogue: {fileID: 909294491}
   - topic: Pootis
     response: Spencer
-    minApproval: -1
+    minApproval: 0.2
+    changeApproval: 0.4
     nextDialogue: {fileID: 909294491}
   - topic: What was his name again?
     response: 'JOHN CENA!!!!
 
       .....'
-    minApproval: -1
+    minApproval: 0.8
+    changeApproval: 1
+    nextDialogue: {fileID: 909294491}
+  - topic: I like you enough to show this message
+    response: Are you stalking me?
+    minApproval: 1
+    changeApproval: 0
+    nextDialogue: {fileID: 909294491}
+  - topic: WhAtS A pRoGrAmMeR aGaIn???
+    response: Aw s**t
+    minApproval: -2
+    changeApproval: -0.2
     nextDialogue: {fileID: 909294491}
 --- !u!136 &909294492
 CapsuleCollider:
@@ -617,7 +569,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &909294496
 MonoBehaviour:
@@ -637,15 +589,18 @@ MonoBehaviour:
     topic: No. See you later
     response: ...okay
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 0}
   dialogueOptions:
   - topic: what?
     response: Do you want fries with that?
     minApproval: -1
+    changeApproval: 1
     nextDialogue: {fileID: 909294496}
   - topic: Is it the chinchillas again?
     response: Yes please help
     minApproval: -1
+    changeApproval: 0
     nextDialogue: {fileID: 909294496}
 --- !u!1 &937849104
 GameObject:
@@ -683,7 +638,7 @@ MonoBehaviour:
   walkSpeed: 5
   runSpeed: 24
   crouchSpeed: 2
-  jumpSpeed: 2
+  jumpSpeed: 10
   _charC: {fileID: 937849110}
 --- !u!114 &937849106
 MonoBehaviour:
@@ -881,7 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialiseFactions:
   - factionName: Trolls
-    _approval: 0
+    _approval: 0.012
   - factionName: Pootis Birds
     _approval: -0.35
   - factionName: The Oompa Loompas
@@ -898,7 +853,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1856044416
 GameObject:

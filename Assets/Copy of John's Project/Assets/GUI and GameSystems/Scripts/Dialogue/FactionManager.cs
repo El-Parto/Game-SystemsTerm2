@@ -12,6 +12,7 @@ public class Factions
         set
         {
             _approval = Mathf.Clamp(value, -1, 1);
+            //_approval = 1f;
         }
         get
         {
@@ -21,7 +22,8 @@ public class Factions
 
     public Factions(float initialAprroval) // constructor
     {
-        approval = initialAprroval;
+        
+        approval = initialAprroval;// the initial approval rating for a faction
     }
 }
 
@@ -36,19 +38,19 @@ public class FactionManager : MonoBehaviour
     List<Factions> initialiseFactions; //two collections of factions? 
     // * Well no, this way you don't need to use dictionary and create a custom layout(?) 
 
-    public static FactionManager instance;
+    public static FactionManager instance; // the instance of a faction manager class(?)
     public void Awake()
     {
         if (instance == null)
         {
-            instance = this;
+            instance = this; //intance will equal factionManager
         }
         else
         {
             Destroy(this);
         }
 
-        factions = new Dictionary<string, Factions>();
+        factions = new Dictionary<string, Factions>();//a dictionary that contains the factions as a string
         //factions.Add("Orange you glad", new Factions());
         // now we have a loop that goes through all factions
         foreach(Factions faction in initialiseFactions)
@@ -77,7 +79,7 @@ public class FactionManager : MonoBehaviour
             return factions[factionName].approval;
         }
         return null;
-    }
+    } 
 
     /* Changing Facton approval
     public void approvalChanger()
@@ -86,4 +88,34 @@ public class FactionManager : MonoBehaviour
     }
     */
 
+    
+
+
+    public void approvalPositive()
+    {
+        //troll specific
+        FactionManager.instance.FactionsApproval("Trolls", + 1f);
+
+
+        //Pootis Birds Specific
+
+        FactionManager.instance.FactionsApproval("Pootis Birds", + 1f);
+
+        //The Oompa Loompas specific
+        FactionManager.instance.FactionsApproval("The Oompa Loompass", + 1f);
+    }
+
+    public void approvalNegative()
+    {
+        //troll specific
+        FactionManager.instance.FactionsApproval("Trolls", - 1f);
+
+
+        //Pootis Birds Specific
+
+        FactionManager.instance.FactionsApproval("Pootis Birds", - 1f);
+
+        //The Oompa Loompas specific
+        FactionManager.instance.FactionsApproval("The Oompa Loompass", - 1f);
+    }
 }
