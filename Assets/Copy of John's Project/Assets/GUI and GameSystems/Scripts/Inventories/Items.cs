@@ -111,4 +111,6 @@ public class Items
     }
     #endregion
 
+
+    public virtual void onClicked() => Debug.Log($"Item pressed was : {name}");
 }

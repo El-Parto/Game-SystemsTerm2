@@ -17,13 +17,23 @@ public class Inventory : MonoBehaviour
     #endregion
 
 
-
+    public void AddItem(Items _item)
+    {
+        inventory.Add(_item);
+    }
+    public void RemoveItem(Items _item)
+    {
+        if (inventory.Contains(_item))
+            inventory.Remove(_item);
+    }
 
 
     #region Display Inventory
     private Vector2 scrollPosition; // just for the IMGUI to scroll through it.
     private string sortType = "All"; // sorting through Inventory
     #endregion
+
+
 
 
     // Start is called before the first frame update
@@ -125,6 +135,7 @@ public class Inventory : MonoBehaviour
                 if (GUI.Button(new Rect(30, 0 + (count * 30), 200, 30), inventory[i].Name))
                 {
                     selectedItem = inventory[i];
+                    selectedItem.onClicked();
                 }
                 count++;
             }
