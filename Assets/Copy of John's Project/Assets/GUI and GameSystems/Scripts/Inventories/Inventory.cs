@@ -7,24 +7,49 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private List<Items> inventory = new List<Items>(); // list of items
     [SerializeField]private bool showIMGUIInventory = true; // tick on untick to make it show or not
-    private Items selectedItem = null;// places item in this variable
+    
+    public Items selectedItem = null;// places item in this variable
 
     #region Canvas Inventory
     [SerializeField] private Button ButtonPrefab;
     [SerializeField] private GameObject InventoryGameObject;
     [SerializeField] private GameObject InventoryContent;
     [SerializeField] private GameObject FilterContent;
-    #endregion
 
+    [Header("Selected Item Display")]
+    [SerializeField] private RawImage itemImage;
+    [SerializeField] private Text itemName;
+    [SerializeField] private Text itemDescription;
+
+    #endregion
 
     public void AddItem(Items _item)
     {
-        inventory.Add(_item);
+        AddItem(_item, _item.Amount);
+    }
+
+    public void AddItem(Items _item, int count)
+    {
+        Items foundItem = inventory.Find((x) => x.Name == _item.Name);
+        if(foundItem == null)
+        {
+            inventory.Add(_item);
+        }
+        else
+        {
+            foundItem.Amount += count;
+        }
+        DisplayItemsCanvas();
+        DisplaySelectedItemOnCanvas(selectedItem);
+
     }
     public void RemoveItem(Items _item)
     {
         if (inventory.Contains(_item))
             inventory.Remove(_item);
+
+        DisplayItemsCanvas();
+        DisplaySelectedItemOnCanvas(selectedItem);
     }
 
 
@@ -39,7 +64,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        DisplayfiltersCanvas();
     }
 
     // Update is called once per frame
@@ -47,13 +72,54 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            InventoryGameObject.SetActive(true);
-            DisplayItemsCanvas();
+            if (InventoryGameObject.activeSelf)
+            {
+                InventoryGameObject.SetActive(false);
+            }
+            else
+            {
+                InventoryGameObject.SetActive(true);
+                DisplayItemsCanvas();
+            }
+            
+        }
+    }
+
+    private void DisplayfiltersCanvas()
+    {
+        //get name turns things into strings
+        List<string> itemTypes = new List<string>(Enum.GetNames(typeof(Items.ItemType)));
+        itemTypes.Insert(0, "All");
+
+        for (int i = 0; i < itemTypes.Count; i++)
+        {
+            Button buttonGO = Instantiate<Button>(ButtonPrefab, FilterContent.transform);//adding it to the transform
+            Text buttonText = buttonGO.GetComponentInChildren<Text>(); // the variable now equals text
+            buttonGO.name = itemTypes[i] + "filter"; //name is the name of object in text plus filter
+            buttonText.text = itemTypes[i]; // buttontext  is now the name of the item
+
+            int x = i;
+            buttonGO.onClick.AddListener(delegate { ChangeFilter(itemTypes[x]); });
+        }
+    }
+    private void ChangeFilter(string itemType)
+    {
+        sortType = itemType;
+        DisplayItemsCanvas();
+    }
+
+    private void DestroyAllChildren(Transform parent)
+    {
+        foreach(Transform child in parent)
+        {
+            Destroy(child.gameObject);
         }
     }
 
     private void DisplayItemsCanvas()
     {
+        // to prevent the inventory from endlessly adding.
+        DestroyAllChildren(InventoryContent.transform);
 
         for (int i = 0; i < inventory.Count; i++)
         {
@@ -63,10 +129,24 @@ public class Inventory : MonoBehaviour
                 Text buttonText = buttonGO.GetComponentInChildren<Text>();
                 buttonGO.name = inventory[i].Name + "button";
                 buttonText.text = inventory[i].Name;
+
+                Items item = inventory[i];
+                buttonGO.onClick.AddListener(delegate { DisplaySelectedItemOnCanvas(item); });
+
             }
         }
     }
-
+    void DisplaySelectedItemOnCanvas(Items item)
+    {
+        //click button, get item, from item, we want to fill in things with our item.
+        selectedItem = item;
+        itemImage.texture = selectedItem.Icon;
+        itemName.text = selectedItem.Name;
+        itemDescription.text = selectedItem.Description + 
+            "\nValue:" + selectedItem.Value +
+            "\nAmount:" + selectedItem.Amount;
+    }
+    // \ == carraige escape
     
     private void OnGUI()
     {

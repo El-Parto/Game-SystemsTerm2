@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4901062777223116848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4901062777223116850}
+  - component: {fileID: 4901062777223116851}
+  - component: {fileID: 5422007893123455592}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4901062777223116850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901062777223116848}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 415.58127, y: 264.0607, z: -68.63202}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4901062777223116851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901062777223116848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4b825e5a613e54bb6121c0aef28361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory:
+  - name: Weapon
+    description: it's a weapon
+    value: 1
+    amount: 15
+    icon: {fileID: 2800000, guid: 60b18a3252f29234f9ec274a69fd5b38, type: 3}
+    mesh: {fileID: 0}
+    type: 1
+    damage: 15
+    armour: 0
+    heal: 0
+  - name: chop
+    description: lil' of the ol' Chop chop
+    value: 1
+    amount: 15
+    icon: {fileID: 2800000, guid: 1bbe71d52805bcd448752d51503b9473, type: 3}
+    mesh: {fileID: 0}
+    type: 6
+    damage: 0
+    armour: 0
+    heal: 15
+  - name: Health Potion
+    description: Recover your physical strength (Does not include Mentall rehabilitation.)
+    value: 1
+    amount: 15
+    icon: {fileID: 2800000, guid: 10e3981cfd1e95e43a75d36e5fa7df37, type: 3}
+    mesh: {fileID: 0}
+    type: 0
+    damage: 0
+    armour: 0
+    heal: 1000
+  showIMGUIInventory: 0
+  selectedItem:
+    name: 
+    description: 
+    value: 0
+    amount: 0
+    icon: {fileID: 0}
+    mesh: {fileID: 0}
+    type: 0
+    damage: 0
+    armour: 0
+    heal: 0
+  ButtonPrefab: {fileID: 5151674696120405447, guid: 05b32c8a2464e3e499d14e6e60affdf4, type: 3}
+  InventoryGameObject: {fileID: 4901062777223116848}
+  InventoryContent: {fileID: 0}
+  FilterContent: {fileID: 0}
+  itemImage: {fileID: 0}
+  itemName: {fileID: 0}
+  itemDescription: {fileID: 0}
+--- !u!114 &5422007893123455592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901062777223116848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a9af4f74c56594fa191faea24cfeaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 4901062777223116851}
+  dropPoint: {fileID: 4823836424745050803, guid: a50145f0dc2413d47967a75b67ed3443, type: 3}
+  camera: {fileID: 0}

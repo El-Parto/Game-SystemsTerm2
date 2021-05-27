@@ -40,8 +40,8 @@ public class Items
     
     public string Description
     {
-        get { return name; }
-        set { name = value; }
+        get { return description; }
+        set { description = value; }
     }
 
     public int Value 
