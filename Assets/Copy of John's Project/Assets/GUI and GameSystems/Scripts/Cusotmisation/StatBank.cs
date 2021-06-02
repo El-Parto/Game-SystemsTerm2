@@ -42,27 +42,27 @@ public class StatBank : MonoBehaviour
         {
             case 1:
                 stat1++;
-                stat1Text.text = stat1.ToString();
+                stat1Text.text = "+" + stat1.ToString();
                 break;
             case 2:
                 stat2++;
-                stat2Text.text = stat2.ToString();
+                stat2Text.text = "+" + stat2.ToString();
                 break;
             case 3:
                 stat3++;
-                stat3Text.text = stat3.ToString();
+                stat3Text.text = "+" + stat3.ToString();
                 break;
             case 4:
                 stat4++;
-                stat4Text.text = stat4.ToString();
+                stat4Text.text = "+" + stat4.ToString();
                 break;
             case 5:
                 stat5++;
-                stat5Text.text = stat5.ToString();
+                stat5Text.text = "+" + stat5.ToString();
                 break;
             case 6:
                 stat6++;
-                stat6Text.text = stat6.ToString();
+                stat6Text.text = "+" + stat6.ToString();
                 break;
         }
 
@@ -88,7 +88,7 @@ public class StatBank : MonoBehaviour
                 else
                 {
                     stat1--;
-                    stat1Text.text = stat1.ToString();
+                    stat1Text.text = "+" + stat1.ToString();
                     statBank++;
                     bankText.text = statBank.ToString();
                     break;
@@ -99,7 +99,7 @@ public class StatBank : MonoBehaviour
                 else
                 {
                     stat2--;
-                    stat2Text.text = stat2.ToString();
+                    stat2Text.text = "+" + stat2.ToString();
                     statBank++;
                     bankText.text = statBank.ToString();
                     break;
@@ -110,7 +110,7 @@ public class StatBank : MonoBehaviour
                 else
                 {
                     stat3--;
-                    stat3Text.text = stat3.ToString();
+                    stat3Text.text = "+" + stat3.ToString();
                     statBank++;
                     bankText.text = statBank.ToString();
                     break;
@@ -121,7 +121,7 @@ public class StatBank : MonoBehaviour
                 else
                 {
                     stat4--;
-                    stat4Text.text = stat4.ToString();
+                    stat4Text.text = "+" + stat4.ToString();
                     statBank++;
                     bankText.text = statBank.ToString();
                     break;
@@ -132,7 +132,7 @@ public class StatBank : MonoBehaviour
                 else
                 {
                     stat5--;
-                    stat5Text.text = stat5.ToString();
+                    stat5Text.text = "+" + stat5.ToString();
                     statBank++;
                     bankText.text = statBank.ToString();
                     break;
@@ -143,7 +143,7 @@ public class StatBank : MonoBehaviour
                 else
                 {
                     stat6--;
-                    stat6Text.text = stat6.ToString();
+                    stat6Text.text = "+" + stat6.ToString();
                     statBank++;
                     bankText.text = statBank.ToString();
                     break;
@@ -190,7 +190,7 @@ public class StatBank : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }
 
