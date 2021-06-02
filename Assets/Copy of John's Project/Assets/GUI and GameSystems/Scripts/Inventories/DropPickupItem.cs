@@ -6,7 +6,7 @@ public class DropPickupItem : MonoBehaviour
 {
    [SerializeField]private Inventory inventory;
    [SerializeField] private Transform dropPoint;
-   [SerializeField] private Camera camera;
+   [SerializeField] private new Camera camera;
 
     private void Update()
     {

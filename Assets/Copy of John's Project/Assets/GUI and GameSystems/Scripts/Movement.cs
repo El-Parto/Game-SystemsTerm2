@@ -6,9 +6,19 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
+    public bool creatingChar;
+    #region Stats
+    [Header("HP and MP")]
+    public float health = 100;
+    public float mana = 75;
+    public float hpRegen = 0.01f;
+    public float manaRegen = 0.005f;
+
     [Header("Speed Vars")]
-    public float moveSpeed;
+    public float moveSpeed;    
     public float walkSpeed, runSpeed, crouchSpeed, jumpSpeed;
+    #endregion
+
     private float _gravity = 20.0f;
     private Vector3 _moveDir;
     public CharacterController _charC;
@@ -79,4 +89,58 @@ public class Movement : MonoBehaviour
         _moveDir.y -= _gravity * Time.deltaTime;
         _charC.Move(_moveDir * Time.deltaTime);
     }
+
+
+    public void RaiseStat(int value)
+    { //this button will increase movement speed give interger of 1
+        switch (value)
+        {
+            case 1:
+                health += 1; //in the first case, it'll increment by 1 the value inside the variable "moveSpeed"
+                break;
+            case 2:
+                mana += 1; //in the second case, it'll increment by 1 the value inside the variable "jumpHeight"
+                break;
+            case 3:
+                moveSpeed += 1; //in the sprintMulti case, it'll increment by 1 the value inside the variable "sprintMulti"
+                break;
+            case 4:
+                hpRegen += 1; //in the maxFuel case, it'll increment by 1 the value inside the variable "maxFuel"
+                break;
+            case 5:
+                manaRegen += 1; //adds one to the value inside the variable "jetpackForce"
+                break;
+            case 6:
+                jumpSpeed += 1;
+                break;
+
+
+        }
+    }
+    public void LowerStat(int value)
+    { //this button will increase movement speed give interger of 1
+        switch (value)
+        {
+            case 1:
+                moveSpeed -= 1; //in the first case, it'll decrease by 1 the value inside the variable "moveSpeed"
+                break;
+            case 2:
+                jumpSpeed -= 1; //in the second case, it'll decrease by 1 the value inside the variable "jumpHeight"
+                break;
+            case 3:
+                moveSpeed -= 1; //in the sprintMulti case, it'll decrease by 1 the value inside the variable "sprintMulti"
+                break;
+            case 4:
+                hpRegen -= 1; //in the maxFuel case, it'll decrease by 1 the value inside the variable "maxFuel"
+                break;
+            case 5:
+                manaRegen -= 1; //subtracts one to the value inside the variable "jetpackForce"
+                break;
+            case 6:
+                jumpSpeed += 1;
+                break;
+
+        }
+    }
+
 }
