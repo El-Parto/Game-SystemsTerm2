@@ -18,12 +18,15 @@ public class DropPickupItem : MonoBehaviour
             if (Physics.Raycast(ray, out hitInfo, 50f))
             {
                 DroppedItem droppedItem = hitInfo.collider.gameObject.GetComponent<DroppedItem>(); // if you hit something with this compenent,
-                //now got tat item.
+                //now got that item.
 
                  
-                if (dropPoint != null)
+                if (droppedItem != null)
                 {
-                    inventory.AddItem(droppedItem.item);
+                    if (droppedItem.item != null)
+                    {
+                        inventory.AddItem(droppedItem.item);
+                    }
                     Destroy(hitInfo.collider.gameObject);
                 }
             }
@@ -43,17 +46,17 @@ public class DropPickupItem : MonoBehaviour
             GameObject spawnedMesh = Instantiate(mesh, null);
             spawnedMesh.transform.position = dropPoint.position;
 
-            
 
             DroppedItem droppedItem = mesh.GetComponent<DroppedItem>();
-            if(droppedItem != null)
-            {
-                
-                droppedItem.item = new Items(inventory.selectedItem, 1);
-            }
+
             if(droppedItem == null)
             {
                 droppedItem = spawnedMesh.AddComponent<DroppedItem>();
+            }
+            if (droppedItem != null)
+            {
+
+                droppedItem.item = new Items(inventory.selectedItem, 1);
             }
         }
 

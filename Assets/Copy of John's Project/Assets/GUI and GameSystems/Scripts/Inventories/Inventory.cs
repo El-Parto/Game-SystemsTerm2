@@ -138,13 +138,28 @@ public class Inventory : MonoBehaviour
     }
     void DisplaySelectedItemOnCanvas(Items item)
     {
-        //click button, get item, from item, we want to fill in things with our item.
         selectedItem = item;
-        itemImage.texture = selectedItem.Icon;
-        itemName.text = selectedItem.Name;
-        itemDescription.text = selectedItem.Description + 
-            "\nValue:" + selectedItem.Value +
-            "\nAmount:" + selectedItem.Amount;
+
+        if (item == null)
+        {
+            itemImage.texture = null;
+            itemName.text = "";
+            itemDescription.text = "";
+
+        }
+        else
+        {
+            itemImage.texture = selectedItem.Icon;
+            itemName.text = selectedItem.Name;
+            itemDescription.text = selectedItem.Description +
+                "\nValue:" + selectedItem.Value +
+                "\nAmount:" + selectedItem.Amount;
+        }
+        //click button, get item, from item, we want to fill in things with our item.
+        
+
+
+        
     }
     // \ == carraige escape
     

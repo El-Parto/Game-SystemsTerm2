@@ -11,6 +11,11 @@ public class FactionChanger : MonoBehaviour
     private TextMeshProUGUI factionNameText;
     [SerializeField]
     private TextMeshProUGUI classText;
+    
+   // [SerializeField]
+    //private Button classText;
+
+
 
 
 
