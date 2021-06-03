@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
     #region Canvas Inventory
     [SerializeField] private Button ButtonPrefab;
     [SerializeField] private GameObject InventoryGameObject;
+    [SerializeField] private GameObject panel;
     [SerializeField] private GameObject InventoryContent;
     [SerializeField] private GameObject FilterContent;
 
