@@ -10,7 +10,7 @@ public class MainMenuControl : MonoBehaviour
     public TextMeshProUGUI anyKey;
 
     public Button play;
-    public Button proceed;
+    public Button proceed; // continue button
     public Button load;
     public Button options;
     public Button quit;
@@ -53,7 +53,11 @@ public class MainMenuControl : MonoBehaviour
     }
     public void BackClick()
     {
-        
+        proceed.gameObject.SetActive(false);
+        play.gameObject.SetActive(true);
+        back.gameObject.SetActive(false);
+        quit.gameObject.SetActive(true);
+        load.gameObject.SetActive(false);
     }
 
     public void OptBackClick()
